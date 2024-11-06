@@ -2,11 +2,12 @@ package es.santander.ascentic.proyecto03;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 
 public class TestCalculadora{
- calculadora calculadora = new calculadora();
+ Calculadora calculadora = new Calculadora();
     @Test
     public void testsumar(){
         long resultado = calculadora.sumar(5,1);
@@ -30,6 +31,27 @@ public class TestCalculadora{
 
     }
     
+    @Test
+    public void testdividirDivisionPorCero(){
+        try {
+            long resultado =calculadora.dividir(10, 0);
+            fail("Deberia haber lanzando un error de division por 0");
+        } catch (Exception e) {
 
+            System.out.println(e);
+        }
 
+    }
+   
+    @Test
+    public void testpresentarTablaMultiplicar(){
+        calculadora.presentarTablaMultiplicar(7);
+    }
+    @Test
+    public void testCalcularTablaMultiplicar(){
+        calculadora.calcularTablaMultiplicar(9);
+
+    }
 }
+
+    
